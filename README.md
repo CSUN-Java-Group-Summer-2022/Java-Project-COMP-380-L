@@ -18,22 +18,22 @@ Course Description:
 
 Course Objectives:
 
-  Upon successful completion of the course the student will be able to: 
+    Upon successful completion of the course the student will be able to: 
 
-    Describe the history of the term, “software engineering,” and explain its current 
-    meaning and importance. 
+        Describe the history of the term, “software engineering,” and explain its current 
+        meaning and importance. 
 
-    Explain well-known software development process models. 
+        Explain well-known software development process models. 
 
-    Employee an agile process to develop a term project. 
+        Employee an agile process to develop a term project. 
 
-    Conduct software modeling and design using an accepted design methodology such as 
-    UML. 
+        Conduct software modeling and design using an accepted design methodology such as 
+        UML. 
 
-    Discuss various testing techniques. 
+        Discuss various testing techniques. 
 
-    Discuss key principles and common methods for agile software project management 
-    such as scope, time, cost, quality, and risk management. 
+        Discuss key principles and common methods for agile software project management 
+        such as scope, time, cost, quality, and risk management. 
 
-    Get familiar with different types of tools which are necessary to manage a project and 
-    develop a product. 
+        Get familiar with different types of tools which are necessary to manage a project and 
+        develop a product. 
