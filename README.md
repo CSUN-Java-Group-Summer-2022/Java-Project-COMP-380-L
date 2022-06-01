@@ -7,6 +7,7 @@ Prof. Taehyung (George) Wang
 Members: Jacob Yousif, Samuel Santana, Fernando Vega, Enrique Gonzalez, Lucas Troutman
 
 Course Description:
+
   Software engineering is an engineered discipline in which the aim is the production of software 
   products, delivered on time and within a set budget, that satisfies the client’s needs. It covers major 
   aspects of agile software development and management including requirements, design, 
