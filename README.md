@@ -1,5 +1,5 @@
 # Java-Project-COMP-380-L
-/*
+
 COMP380/L: Introduction to Software Engineering 
 Summer 2022 
 Prof. Taehyung (George) Wang
@@ -35,4 +35,3 @@ Course Objectives:
 
     Get familiar with different types of tools which are necessary to manage a project and 
     develop a product. 
-  */
