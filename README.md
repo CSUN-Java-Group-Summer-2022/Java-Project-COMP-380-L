@@ -4,7 +4,7 @@ COMP380/L: Introduction to Software Engineering
 Summer 2022 
 Prof. Taehyung (George) Wang
 
-Members: Jacob Yousif, Samuel Santana, Fernando Vega, Enrique Gonzalez, Lucas Troutman
+Members: Jacob Yousif, Samuel Santana, Fernando Vega, Enrique Gonzalez, Lucas Troutman, Mao Hashimoto
 
 
 Course Description:
