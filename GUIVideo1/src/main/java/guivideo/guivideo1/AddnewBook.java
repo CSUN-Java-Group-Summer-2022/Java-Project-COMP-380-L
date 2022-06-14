@@ -242,7 +242,7 @@ public class AddnewBook extends javax.swing.JFrame {
             }
         });
     }
-
+    //Example
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField autherName;
     private javax.swing.JTextField bookName;
