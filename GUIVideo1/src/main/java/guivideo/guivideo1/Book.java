@@ -16,6 +16,8 @@ public class Book implements Serializable
   private int iSBN; // random 10 digit number (i.e. 9000000001)
   private int quantity = -1;
   
+  // changes here
+  
   //Contructors
 public Book(String nameofbook, String authorofbook, int quantity) {
     this.nameofbook = nameofbook;
