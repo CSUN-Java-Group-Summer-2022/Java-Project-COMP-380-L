@@ -14,15 +14,16 @@ public class Book implements Serializable
   private String nameofbook;
   private String authorofbook;
   private int iSBN; // random 10 digit number (i.e. 9000000001)
-  private int quantity;
+  private int quantity = -1;
   
   //Contructors
 public Book(String nameofbook, String authorofbook, int quantity) {
     this.nameofbook = nameofbook;
     this.authorofbook = authorofbook;
+    this.iSBN = generateISBN();
     this.quantity = quantity;
     }
-    //Might have to compare two of the same obejects, To prevent repeats.
+    //Might have to compare two of the same objects, To prevent repeats.
     
     //Getters 
     public String getNameofbook() {
@@ -40,6 +41,10 @@ public Book(String nameofbook, String authorofbook, int quantity) {
     public int getQuantity() {
         return quantity;
     }
+    
+    public int getISBN(){
+        return iSBN;
+    }
   
     //Setters
 
@@ -51,14 +56,20 @@ public Book(String nameofbook, String authorofbook, int quantity) {
         this.authorofbook = authorofbook;
     }
 
-    public void setiSBN(int iSBN) {
-        this.iSBN = iSBN;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
+    public void setISBN( int newISBN)
+  {
+	  iSBN = newISBN;
+  }
   
-    
-    //need method to generate ISBN of book
+    // helper methods
+	private int generateISBN() 
+	{
+		int id = (int) (Math.random() * 1000000) + 1;
+		return id;
+	}
+	public String printBookInfo()
+	{
+	String a = nameofbook + " " + authorofbook + " " + iSBN + " " + quantity + "\n" ;
+	return a;
+	}
 }
