@@ -24,6 +24,8 @@ public Book(String nameofbook, String authorofbook, int quantity) {
     this.authorofbook = authorofbook;
     this.iSBN = generateISBN();
     this.quantity = quantity;
+    
+    //change change
     }
     //Might have to compare two of the same objects, To prevent repeats.
     
