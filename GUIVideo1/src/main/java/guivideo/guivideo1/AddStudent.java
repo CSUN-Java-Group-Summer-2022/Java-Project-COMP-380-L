@@ -4,6 +4,8 @@
  */
 package guivideo.guivideo1;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Horchata
@@ -28,7 +30,7 @@ public class AddStudent extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        studentName = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add new student");
@@ -38,9 +40,9 @@ public class AddStudent extends javax.swing.JFrame {
 
         jLabel2.setText("Enter Student Name");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        studentName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                studentNameActionPerformed(evt);
             }
         });
 
@@ -54,7 +56,7 @@ public class AddStudent extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(studentName, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
@@ -66,16 +68,28 @@ public class AddStudent extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(studentName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(238, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void studentNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+         if(studentName.getText().isEmpty())
+        {
+            //If no text feild then print this msg to the user
+            JOptionPane.showMessageDialog(null,"Please enter all feilds!");
+        }
+        else
+        {
+            //Take in the text feels and set them as variables that are going to be passed in to the Library Methods
+        String name = studentName.getText().trim();
+        Library.registerStudent(name);
+        Library.printRegisteredStudents();
+    }                           
+    }//GEN-LAST:event_studentNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,6 +129,6 @@ public class AddStudent extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField studentName;
     // End of variables declaration//GEN-END:variables
 }
