@@ -223,7 +223,7 @@ public class AddnewBook extends javax.swing.JFrame {
             //Take in the text feels and set them as variables that are going to be passed in to the Library Methods
         String name = bookName.getText().trim();
         String auther = autherName.getText().trim();
-        int count = numberCount.getSelectedIndex();
+        int count = numberCount.getSelectedIndex() + 1;
         
         //Book book = new Book(name, auther, count);
        //Library.printAllBooks();

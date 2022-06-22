@@ -48,7 +48,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar2.add(jMenu5);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Welcome to (\"Bibloe-techa\")");
+        setTitle("Welcome to (\"Biblio-Techa\")");
 
         jLabel1.setText("Main Menu ");
 
@@ -151,7 +151,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        new SearchBook().setVisible(true);        // TODO add your handling code here:
+       // new SearchBook().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem5ActionPerformed
   
     /**

@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package guivideo.guivideo1;
-// This is a test!!!!!!!!!!!!!!
 /**
  *
  * @author Horchata
@@ -59,10 +58,14 @@ public Book(String nameofbook, String authorofbook, int quantity) {
     public void setAuthorofbook(String authorofbook) {
         this.authorofbook = authorofbook;
     }
+    public void setQuantity(int quantity)
+    {
+        this.quantity = quantity;
+    }
 
     public void setISBN( int newISBN)
   {
-	  iSBN = newISBN;
+	  this.iSBN = newISBN;
   }
   
     // helper methods

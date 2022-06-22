@@ -131,8 +131,8 @@ public class Library implements Serializable
 		}
 	  }
   }
-    
-      public static void printRegisteredStudents() //6
+   
+      public static void printRegisteredStudents() 
   {
 	// using the students array, if element is not null, print name, id and checkedOutBooks
 			for(int i = 0; i < student.length; i++) 
@@ -144,5 +144,33 @@ public class Library implements Serializable
 			}
 	}
   }
+  public static void updateBookQuantity(int ISBN, int input) 
+  {
+	// find the book in the books array using the ISBN number
+	// update the quantity based on input
+        try{
+	for(int i = 0; i < book.length; i++) 
+	{
+		if (book[i].getISBN() == ISBN)
+		{
+			book[i].setQuantity(input);
+                        JOptionPane.showMessageDialog(null,"Book was found and updated");
+			break;
+		}
+		else 
+		{
+			JOptionPane.showMessageDialog(null,"Looks like nothing was found ");
+			break;
+		}
+	}
+        }
+        catch(NullPointerException e)
+        {
+            JOptionPane.showMessageDialog(null,"Looks like nothing was found");
+        }
+  }
+      
+      
+      
   
 }
