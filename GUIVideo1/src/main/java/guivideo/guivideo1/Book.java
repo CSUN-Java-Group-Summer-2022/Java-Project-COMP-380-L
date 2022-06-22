@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package guivideo.guivideo1;
-
 /**
  *
  * @author Horchata
@@ -16,12 +15,16 @@ public class Book implements Serializable
   private int iSBN; // random 10 digit number (i.e. 9000000001)
   private int quantity = -1;
   
+  // changes here
+  
   //Contructors
 public Book(String nameofbook, String authorofbook, int quantity) {
     this.nameofbook = nameofbook;
     this.authorofbook = authorofbook;
     this.iSBN = generateISBN();
     this.quantity = quantity;
+    
+    //change change
     }
     //Might have to compare two of the same objects, To prevent repeats.
     
@@ -55,10 +58,14 @@ public Book(String nameofbook, String authorofbook, int quantity) {
     public void setAuthorofbook(String authorofbook) {
         this.authorofbook = authorofbook;
     }
+    public void setQuantity(int quantity)
+    {
+        this.quantity = quantity;
+    }
 
     public void setISBN( int newISBN)
   {
-	  iSBN = newISBN;
+	  this.iSBN = newISBN;
   }
   
     // helper methods
