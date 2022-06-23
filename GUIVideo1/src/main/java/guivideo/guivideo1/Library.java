@@ -169,6 +169,20 @@ public class Library implements Serializable
             JOptionPane.showMessageDialog(null,"Looks like nothing was found");
         }
   }
+  
+    public static Book searchBookByISBN(String nameOfBook,String authorOfBook, int ISBN) //4
+  {
+	// search for the book in the books array using the ISBN
+	// if found return the Book object, return null otherwise
+	for(int i = 0; i < book.length; i++) 
+	{
+		if (book[i].getISBN() == ISBN || book[i].getNameofbook() == nameOfBook || book[i].getAuthorofbook() == authorOfBook)
+		{
+			return book[i];
+		}
+	}
+	return null;
+  }
       
       
       
