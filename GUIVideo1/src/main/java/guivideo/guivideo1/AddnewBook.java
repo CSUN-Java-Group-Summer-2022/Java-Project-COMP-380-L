@@ -220,20 +220,24 @@ public class AddnewBook extends javax.swing.JFrame {
         }
         else
         {
-            //Take in the text feels and set them as variables that are going to be passed in to the Library Methods
+            //Take in the text feels and set them as variables so they can be inplemented 
         String name = bookName.getText().trim();
         String auther = autherName.getText().trim();
+        
+        //Bug here temporary fix
         int count = numberCount.getSelectedIndex() + 1;
         
-        //Book book = new Book(name, auther, count);
-       //Library.printAllBooks();
+      // Book book = new Book(name, auther, count);
+      // Library.printAllBooks();
       // Library.populateArrayList();
-      //Calling methods from Library class
+      // Calling methods from Library class
+     
        Library.addBook(name, auther, count);
        Library.printAllBooks();
-        //books.add(book);
+      
+        //books.add(book);(Temporary code)
        Library.saveBooksToFile();
-       //saveBooksToFile();
+       //saveBooksToFile();(Temporary code)
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed

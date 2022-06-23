@@ -95,7 +95,7 @@ public class Library implements Serializable
                 try
                 {
                     int i = 0;
-                    Book book1 = (Book)inputFile.readObject();
+                    Book book1 = (Book)inputFile.readObject();//not sure how this works
                     book[i] = book1;
                     i++;
                 }
@@ -170,21 +170,32 @@ public class Library implements Serializable
         }
   }
   
-    public static Book searchBookByISBN(String nameOfBook,String authorOfBook, int ISBN) //4
+    public static String searchBookByISBN( String nameOfBook,String author) //4 ,String authorOfBook, int ISBN
   {
 	// search for the book in the books array using the ISBN
 	// if found return the Book object, return null otherwise
-	for(int i = 0; i < book.length; i++) 
-	{
-		if (book[i].getISBN() == ISBN || book[i].getNameofbook() == nameOfBook || book[i].getAuthorofbook() == authorOfBook)
-		{
-			return book[i];
-		}
-	}
-	return null;
+        try{
+            for(int i = 0; i < book.length; i++) 
+            {
+                    if (book[i].getNameofbook().equalsIgnoreCase(nameOfBook) ||book[i].getAuthorofbook().equalsIgnoreCase(author) ) //book[i].getISBN() == ISBN ||book[i].getNameofbook().equalsIgnoreCase(nameOfBook) == true ||
+                    {
+                            JOptionPane.showMessageDialog(null,"returning book");
+                            return book[i].printBookInfo();
+                    }
+                    else
+                    {
+                        //JOptionPane.showMessageDialog(null,"Smelly");
+                        break;
+                    }
+            }
+        }        
+        catch(NullPointerException e)
+        {
+            JOptionPane.showMessageDialog(null,"Null Pointer execption");
+        }
+          return null;
   }
-      
-      
-      
+
+
   
 }
