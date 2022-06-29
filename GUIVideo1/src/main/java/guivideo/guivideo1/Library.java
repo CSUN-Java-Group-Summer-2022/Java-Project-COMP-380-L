@@ -198,8 +198,8 @@ public class Library implements Serializable
     
         public static String searchStudentID(String studentName) //int studentID
     {
-	// search for the book in the books array using the ISBN
-	// if found return the Book object, return null otherwise
+	// search student array for a match with inputted studentName
+	// if found return the student information, return null otherwise
         try{
             for(int i = 0; i < student.length; i++) 
             {
