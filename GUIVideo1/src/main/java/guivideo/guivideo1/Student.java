@@ -24,7 +24,7 @@ public class Student implements Serializable
     }
     
     //Getters
-    public int getId() {
+    public int getID() {
         return id;
     }
 
@@ -33,7 +33,7 @@ public class Student implements Serializable
     }
 
     //Setters
-    public void setId(int id) {
+    public void setID(int id) {
         this.id = id;
     }
 
