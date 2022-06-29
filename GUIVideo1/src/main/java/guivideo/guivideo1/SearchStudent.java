@@ -1,5 +1,7 @@
 package guivideo.guivideo1;
 
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -32,8 +34,8 @@ public class SearchStudent extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        nameEntered = new javax.swing.JTextField();
+        idEntered = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
@@ -47,15 +49,26 @@ public class SearchStudent extends javax.swing.JFrame {
 
         jLabel5.setText("Student ID:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        nameEntered.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                nameEnteredActionPerformed(evt);
+            }
+        });
+
+        idEntered.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idEnteredActionPerformed(evt);
             }
         });
 
         jLabel6.setText("or");
 
         jButton1.setText("Search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,8 +94,8 @@ public class SearchStudent extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                            .addComponent(nameEntered)
+                            .addComponent(idEntered, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(9, 9, 9)
                                 .addComponent(jButton1)))))
@@ -98,7 +111,7 @@ public class SearchStudent extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nameEntered, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -109,7 +122,7 @@ public class SearchStudent extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(idEntered, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(32, 32, 32))
@@ -118,12 +131,44 @@ public class SearchStudent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void nameEnteredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameEnteredActionPerformed
+       // TODO add your handling code here:
+        
+    }//GEN-LAST:event_nameEnteredActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+                        // TODO add your handling code here  
+          if (nameEntered.getText().isEmpty() && idEntered.getText().isEmpty() ){
+            
+             //If no text feild then print this msg to the user
+            JOptionPane.showMessageDialog(null,"Please enter at least one feild!");
+        }
+           
+        else {
+            String nameEntered2 = nameEntered.getText().trim();
+            //int idEntered2 = Integer.parseInt(idEntered.getText().trim());
+            
+            
+            String hello2 = Library.searchStudentID(nameEntered2);
+             
+             if(hello2 == null)
+             {
+                JOptionPane.showMessageDialog(null,"return null");
+             }
+             else
+             {
+                  JOptionPane.showMessageDialog(null,hello2);   
+             }
+        } 
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void idEnteredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idEnteredActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_idEnteredActionPerformed
 
     /**
-     * @param args the command line arguments
+     * @param args the command line arguments 
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -158,6 +203,7 @@ public class SearchStudent extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField idEntered;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -165,7 +211,6 @@ public class SearchStudent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField nameEntered;
     // End of variables declaration//GEN-END:variables
 }
