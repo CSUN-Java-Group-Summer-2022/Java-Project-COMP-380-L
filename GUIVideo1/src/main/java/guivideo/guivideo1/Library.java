@@ -196,14 +196,14 @@ public class Library implements Serializable
           return null;
   }
     
-        public static String searchStudentID(int studentID, String studentName) //4 ,String authorOfBook, int ISBN
+        public static String searchStudentID(String studentName) //int studentID
     {
 	// search for the book in the books array using the ISBN
 	// if found return the Book object, return null otherwise
         try{
             for(int i = 0; i < student.length; i++) 
             {
-                    if ( student[i].getID()== studentID || student[i].getName().equalsIgnoreCase(studentName) ) //book[i].getISBN() == ISBN ||book[i].getNameofbook().equalsIgnoreCase(nameOfBook) == true ||
+                    if ( student[i].getName().equalsIgnoreCase(studentName) ) // student[i].getID()== studentID ||
                     {
                             JOptionPane.showMessageDialog(null,"returning student information");
                             return student[i].getStudentInfo();
