@@ -40,6 +40,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
 
         jMenu4.setText("File");
         jMenuBar2.add(jMenu4);
@@ -52,8 +53,10 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel1.setText("Main Menu ");
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/file.png"))); // NOI18N
         jMenu1.setText("File");
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exit.png"))); // NOI18N
         jMenuItem1.setText("Exit");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +67,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add.png"))); // NOI18N
         jMenu2.setText("Add");
 
         jMenuItem2.setText("Add New Book ");
@@ -84,6 +88,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edit.png"))); // NOI18N
         jMenu3.setText("Edit");
 
         jMenuItem4.setText("Edit Book");
@@ -96,6 +101,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
         jMenu6.setText("Search");
 
         jMenuItem5.setText("Search Book");
@@ -105,6 +111,14 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jMenu6.add(jMenuItem5);
+
+        jMenuItem6.setText("Search Student");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem6);
 
         jMenuBar1.add(jMenu6);
 
@@ -124,7 +138,7 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(334, Short.MAX_VALUE))
+                .addContainerGap(321, Short.MAX_VALUE))
         );
 
         pack();
@@ -151,8 +165,12 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-       new SearchBook().setVisible(true);        // TODO add your handling code here:
+       new SearchBook().setVisible(true);       // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        new SearchStudent().setVisible(true);   // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
   
     /**
      * @param args the command line arguments
@@ -204,5 +222,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     // End of variables declaration//GEN-END:variables
 }

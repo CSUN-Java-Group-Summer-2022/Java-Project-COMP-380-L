@@ -195,7 +195,31 @@ public class Library implements Serializable
         }
           return null;
   }
-
-
-  
+    
+        public static String searchStudentID(String studentName) //int studentID
+    {
+	// search student array for a match with inputted studentName
+	// if found return the student information, return null otherwise
+        try{
+            for(int i = 0; i < student.length; i++) 
+            {
+                    if ( student[i].getName().equalsIgnoreCase(studentName) ) // student[i].getID()== studentID ||
+                    {
+                            JOptionPane.showMessageDialog(null,"returning student information");
+                            return student[i].getStudentInfo();
+                    }
+                    else
+                    {
+                        //JOptionPane.showMessageDialog(null,"Smelly");
+                        break;
+                    }
+            }
+        }        
+        catch(NullPointerException e)
+        {
+            JOptionPane.showMessageDialog(null,"Null Pointer execption");
+        }
+          return null;
+  }
+    
 }

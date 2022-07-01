@@ -1,22 +1,22 @@
+package guivideo.guivideo1;
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package guivideo.guivideo1;
-import javax.swing.*;
-import java.util.*;
-import java.io.*;
 
 /**
  *
  * @author samuelsantana
  */
-public class SearchBook extends javax.swing.JFrame {
+public class SearchStudent extends javax.swing.JFrame {
 
     /**
-     * Creates new form SearchBook
+     * Creates new form SearchStudent
      */
-    public SearchBook() {
+    public SearchStudent() {
         initComponents();
     }
 
@@ -31,48 +31,48 @@ public class SearchBook extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        title1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        author1 = new javax.swing.JTextField();
-        isbn = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        nameEntered = new javax.swing.JTextField();
+        idEntered = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Search Book");
+        setTitle("Search Student");
 
-        jLabel1.setText("Search Book");
+        jLabel1.setText("Search Student");
 
-        jLabel2.setText("Enter one of the following details");
+        jLabel2.setText("Enter the following details");
 
-        jLabel5.setText("ISBN:");
+        jLabel3.setText("First and Last Name:");
+
+        jLabel5.setText("Student ID:");
+
+        nameEntered.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameEnteredActionPerformed(evt);
+            }
+        });
+
+        idEntered.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idEnteredActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("or");
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/search.png"))); // NOI18N
         jButton1.setText("Search");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
-            }
-        });
-
-        title1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                title1ActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("Title of book: ");
-
-        jLabel4.setText("Author");
-
-        author1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                author1ActionPerformed(evt);
             }
         });
 
@@ -102,91 +102,95 @@ public class SearchBook extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
+                        .addGap(140, 140, 140)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
+                        .addGap(116, 116, 116)
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(jButton1)))
-                .addContainerGap(105, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(title1)
-                    .addComponent(author1)
-                    .addComponent(isbn, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
-                .addGap(91, 91, 91))
+                        .addGap(53, 53, 53)
+                        .addComponent(jLabel4)
+                        .addGap(134, 134, 134)
+                        .addComponent(jLabel6))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nameEntered)
+                            .addComponent(idEntered, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jButton1)))))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(title1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(author1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                    .addComponent(jLabel3)
+                    .addComponent(nameEntered, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(27, 27, 27))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(isbn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(idEntered, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(45, 45, 45))
+                .addGap(32, 32, 32))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void nameEnteredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameEnteredActionPerformed
+       // TODO add your handling code here:
+        
+    }//GEN-LAST:event_nameEnteredActionPerformed
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        if(title1.getText().isEmpty() & author1.getText().isEmpty() & isbn.getText().isEmpty() )//& author1.getText().isEmpty() & isbn.getText().isEmpty() 
-        {
-            //If no text feild then print this msg to the user
-            JOptionPane.showMessageDialog(null,"Please enter all feilds!");
-        }
-        else
-        {
-             
+                        // TODO add your handling code here  
+          if (nameEntered.getText().isEmpty() && idEntered.getText().isEmpty() ){
             
-             String title2 = title1.getText().trim();
-             String author2 = author1.getText().trim();
-             //int isbn2 = Integer.parseInt(isbn.getText().trim());
+             //If no text feild then print this msg to the user
+            JOptionPane.showMessageDialog(null,"Please enter at least one feild!");
+        }
+           
+        else {
+            String nameEntered2 = nameEntered.getText().trim();
+            //int idEntered2 = Integer.parseInt(idEntered.getText().trim());
+            
+            
+            String hello2 = Library.searchStudentID(nameEntered2);
              
-             String hello = Library.searchBookByISBN(title2,author2);
-             
-             if(hello == null) //title2 isbn2
+             if(hello2 == null)
              {
                 JOptionPane.showMessageDialog(null,"return null");
              }
              else
              {
-                  JOptionPane.showMessageDialog(null,hello);   
+                  JOptionPane.showMessageDialog(null,hello2);   
              }
-             
-        }
+        } 
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void title1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_title1ActionPerformed
+    private void idEnteredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idEnteredActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_title1ActionPerformed
-
-    private void author1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_author1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_author1ActionPerformed
+    }//GEN-LAST:event_idEnteredActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
@@ -194,7 +198,7 @@ public class SearchBook extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
-     * @param args the command line arguments
+     * @param args the command line arguments 
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -210,36 +214,37 @@ public class SearchBook extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SearchBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SearchStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SearchBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SearchStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SearchBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SearchStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SearchBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SearchStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SearchBook().setVisible(true);
+                new SearchStudent().setVisible(true);
             }
         });
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField author1;
-    private javax.swing.JTextField isbn;
+    private javax.swing.JTextField idEntered;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JTextField title1;
+    private javax.swing.JTextField nameEntered;
     // End of variables declaration//GEN-END:variables
 }
