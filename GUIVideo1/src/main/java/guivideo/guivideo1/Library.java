@@ -159,7 +159,7 @@ public class Library implements Serializable
 		else 
 		{
 			JOptionPane.showMessageDialog(null,"Looks like nothing was found ");
-			break;
+			//break;
 		}
 	}
         }
@@ -184,7 +184,7 @@ public class Library implements Serializable
                     else
                     {
                         //JOptionPane.showMessageDialog(null,"Smelly");
-                        break;
+                        //break;
                     }
             }
         }        
@@ -200,7 +200,7 @@ public class Library implements Serializable
 	// search student array for a match with inputted studentName
 	// if found return the student information, return null otherwise
         try{
-            for(int i = 0; i < student.length; i++) 
+            for(int i = 0; i < 30; i++) 
             {
                     if ( student[i].getName().equalsIgnoreCase(studentName) ) // student[i].getID()== studentID ||
                     {
@@ -210,7 +210,6 @@ public class Library implements Serializable
                     else
                     {
                         //JOptionPane.showMessageDialog(null,"Smelly");
-                        break;
                     }
             }
         }        
@@ -221,33 +220,6 @@ public class Library implements Serializable
           return null;
   }
         
-        
-        
-        
-        public static String searchStudentID2(String studentID)
-        {
-            try{
-            for(int i = 0; i < book.length; i++) 
-            {
-                int studenti = Integer.valueOf(Integer.valueOf(studentID));
-                    if (student[i].getID() == studenti) //book[i].getISBN() == ISBN ||book[i].getNameofbook().equalsIgnoreCase(nameOfBook) == true ||
-                    {
-                            JOptionPane.showMessageDialog(null,"returning student info");
-                            return student[i].getStudentInfo();
-                    }
-                    else
-                    {
-                        //JOptionPane.showMessageDialog(null,"Smelly");
-                        break;
-                    }
-            }
-        }        
-        catch(NullPointerException e)
-        {
-            JOptionPane.showMessageDialog(null,"Null Pointer execption");
-        }
-          return null;
-        }
         
         
         public static String searchID(int studentID)
@@ -263,8 +235,8 @@ public class Library implements Serializable
                     }
                     else
                     {
-                        JOptionPane.showMessageDialog(null,"ID NULL");
-                        break;
+                        //JOptionPane.showMessageDialog(null,"ID NULL");
+                       // break;
                     }
             }
         }        
@@ -288,8 +260,8 @@ public class Library implements Serializable
                     }
                     else
                     {
-                        JOptionPane.showMessageDialog(null,"NO ISBN found");
-                        break;
+                        //JOptionPane.showMessageDialog(null,"NO ISBN found");
+                       // break;
                     }
             }
         }        
