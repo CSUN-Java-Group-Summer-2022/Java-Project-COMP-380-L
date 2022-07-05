@@ -32,6 +32,10 @@ public class Student implements Serializable
         return name;
     }
 
+    public int getCheckedOutBook()
+    {
+        return checkedOutBook;
+    }
     //Setters
     public void setID(int id) {
         this.id = id;
