@@ -117,8 +117,7 @@ public class Library implements Serializable
         }
     }
     
-    //Place your methods that will be callled in other classes here.
-    //Remeber to start if with Public static Void (type) nameofmethod(Any peramriters);
+
     public static void registerStudent(String name) //5
   {
 	  for(int i = 0 ; i < student.length; i++)
@@ -221,5 +220,173 @@ public class Library implements Serializable
         }
           return null;
   }
+        
+        
+        
+        
+        public static String searchStudentID2(String studentID)
+        {
+            try{
+            for(int i = 0; i < book.length; i++) 
+            {
+                int studenti = Integer.valueOf(Integer.valueOf(studentID));
+                    if (student[i].getID() == studenti) //book[i].getISBN() == ISBN ||book[i].getNameofbook().equalsIgnoreCase(nameOfBook) == true ||
+                    {
+                            JOptionPane.showMessageDialog(null,"returning student info");
+                            return student[i].getStudentInfo();
+                    }
+                    else
+                    {
+                        //JOptionPane.showMessageDialog(null,"Smelly");
+                        break;
+                    }
+            }
+        }        
+        catch(NullPointerException e)
+        {
+            JOptionPane.showMessageDialog(null,"Null Pointer execption");
+        }
+          return null;
+        }
+        
+        
+        public static String searchID(int studentID)
+        {
+            try{
+            for(int i = 0; i < student.length; i++) 
+            {
+                    if (student[i].getID() == studentID) //book[i].getISBN() == ISBN ||book[i].getNameofbook().equalsIgnoreCase(nameOfBook) == true ||
+                    {
+                            JOptionPane.showMessageDialog(null,"returning student info");
+                           
+                            return student[i].getStudentInfo();
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null,"ID NULL");
+                        break;
+                    }
+            }
+        }        
+        catch(NullPointerException e)
+        {
+            JOptionPane.showMessageDialog(null,"Null Pointer execption");
+        }
+          return null;
+        }
+        
+        public static String SearchISBN(int bookISBN)
+        {
+            try{
+            for(int i = 0; i < book.length; i++) 
+            {
+                    if (book[i].getISBN() == bookISBN) //book[i].getISBN() == ISBN ||book[i].getNameofbook().equalsIgnoreCase(nameOfBook) == true ||
+                    {
+                            JOptionPane.showMessageDialog(null,"returning student info");
+                           
+                            return book[i].printBookInfo();
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null,"NO ISBN found");
+                        break;
+                    }
+            }
+        }        
+        catch(NullPointerException e)
+        {
+            JOptionPane.showMessageDialog(null,"Null Pointer execption");
+        }
+          return null;
+        }
+        
+        
+        
+        
+        
+        //CheckoutBooks Method
+    public static void checkOutBook(int studentId, int ISBN) //9
+    {
+	for(int i = 0; i < student.length; i++)
+	{
+		if(student[i].getID() == studentId)
+		{
+			if(student[i].getCheckedOutBook() >= 0 && student[i].getCheckedOutBook() < 3)
+			{
+				if(book[i].getISBN() == ISBN)
+				{
+					if(book[i].getQuantity() == 0)
+					{
+						JOptionPane.showMessageDialog(null,"Seems like there are no more books available");
+						break; 
+					}
+					else
+					{
+						student[i].setCheckedOutBooks(student[i].getCheckedOutBook() + 1);
+						book[i].setQuantity(book[i].getQuantity() -1);
+                                                JOptionPane.showMessageDialog(null,"Checked Out");
+						break;
+					}
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null,"Seems like the book ISBN does not match");
+					break;
+				}					
+			}
+			else 
+			{
+				JOptionPane.showMessageDialog(null,"Seems like the student already has max amount of books");
+				break;
+			}
+		}
+		else 
+		{
+			JOptionPane.showMessageDialog(null,"Seems like the student is not registered!!");
+			break;
+		}
+	}
+  }
+          
+    public static void checkInBook(int studentId, int ISBN) //10
+	{
+		for(int i = 0; i < student.length; i++)
+		{
+			if(student[i].getID() == studentId)
+			{
+				if(student[i].getCheckedOutBook() != 0)
+				{
+					if(book[i].getISBN() == ISBN)
+					{
+                                            student[i].setCheckedOutBooks(student[i].getCheckedOutBook() - 1);
+                                            book[i].setQuantity(book[i].getQuantity() + 1);
+                                            JOptionPane.showMessageDialog(null,"Checked in");
+                                            break;
+					}
+					else
+					{
+						JOptionPane.showMessageDialog(null,"Seems like the book ISBN does not match");
+						break;
+					}					
+				}
+				else 
+				{
+					JOptionPane.showMessageDialog(null,"Seems like the student doesnt have any books to check in");
+					break;
+				}
+			}
+			else 
+			{
+				JOptionPane.showMessageDialog(null,"Seems like the student is not registered");
+				break;
+			}
+		}	
+	}
+          
+          
+          
+          
+          
+        
     
 }
