@@ -16,6 +16,8 @@ public class Menu extends javax.swing.JFrame {
      * Creates new form Menu
      */
     public Menu() {
+        Library.loadBooksFromFile();
+        Library.loadStudentsFromFile();
         initComponents();
     }
 

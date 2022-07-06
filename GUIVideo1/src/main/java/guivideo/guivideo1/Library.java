@@ -56,24 +56,20 @@ public class Library implements Serializable
 //This is just an example to help see the new book object changing the number will let you display what object in the list you want.
 
 
-    //This will create a text file with the objects saved 
+    //This will create a text file with the array of Book objects saved to it
     public static void saveBooksToFile()
     {
         try
         {
-            FileOutputStream file = new FileOutputStream("Jobs.dat");
+            FileOutputStream file = new FileOutputStream("books.dat");
             ObjectOutputStream outputFile = new ObjectOutputStream(file);
-            
-            for(int i = 0; i < book.length; i++)
-            {
-             outputFile.writeObject(book[i]);
-            }
+
+            outputFile.writeObject(book);
             outputFile.close();
             
             JOptionPane.showMessageDialog(null, "Succesfully Saved!");
-            //this.dispose();
         }
-        catch(IOException e)
+        catch(Exception e)
         {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -81,37 +77,21 @@ public class Library implements Serializable
   
 
     
-    //This will take the saved file and populate the array (NOT WORKING)
-    public static void populateArrayList()
+    //This takes the saved file and loads the data back into the program
+    public static void loadBooksFromFile()
     {
         try
         {
-            FileInputStream file = new FileInputStream("Jobs.dat");
+            FileInputStream file = new FileInputStream("books.dat");
             ObjectInputStream inputFile = new ObjectInputStream(file);
-            boolean endOfFile = false;
-            while(!endOfFile)
-            {
-                //inputFile.readObject()
-                try
-                {
-                    int i = 0;
-                    Book book1 = (Book)inputFile.readObject();//not sure how this works
-                    book[i] = book1;
-                    i++;
-                }
-                catch(EOFException e)
-                {
-                    endOfFile = true; 
-                }
-                catch(Exception f)
-                {
-                    JOptionPane.showMessageDialog(null, f.getMessage() + book);
-                    
-                }
-            }
+
+            book = (Book[]) inputFile.readObject();
+            
             inputFile.close();
+            
+            JOptionPane.showMessageDialog(null, "Books loaded.");
         }
-        catch(IOException e)
+        catch(Exception e)
         {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -143,6 +123,47 @@ public class Library implements Serializable
 			}
 	}
   }
+      
+  
+  // saves student array to a (new or existing) file
+  public static void saveStudentsToFile()
+    {
+        try
+        {
+            FileOutputStream file = new FileOutputStream("students.dat");
+            ObjectOutputStream outputFile = new ObjectOutputStream(file);
+
+            outputFile.writeObject(student);
+            outputFile.close();
+            
+            JOptionPane.showMessageDialog(null, "Succesfully Saved!");
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
+  
+    // loads student array from a file
+    public static void loadStudentsFromFile()
+    {
+        try
+        {
+            FileInputStream file = new FileInputStream("students.dat");
+            ObjectInputStream inputFile = new ObjectInputStream(file);
+
+            student = (Student[]) inputFile.readObject();
+            
+            inputFile.close();
+            
+            JOptionPane.showMessageDialog(null, "Students loaded.");
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
+      
   public static void updateBookQuantity(int ISBN, int input) 
   {
 	// find the book in the books array using the ISBN number
