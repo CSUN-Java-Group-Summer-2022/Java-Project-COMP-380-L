@@ -199,7 +199,7 @@ public class Library implements Serializable
             {
                     if (book[i].getNameofbook().equalsIgnoreCase(nameOfBook) ||book[i].getAuthorofbook().equalsIgnoreCase(author) ) //book[i].getISBN() == ISBN ||book[i].getNameofbook().equalsIgnoreCase(nameOfBook) == true ||
                     {
-                            JOptionPane.showMessageDialog(null,"returning book");
+                           // JOptionPane.showMessageDialog(null,"returning book");
                             return book[i].printBookInfo();
                     }
                     else
@@ -225,7 +225,7 @@ public class Library implements Serializable
             {
                     if ( student[i].getName().equalsIgnoreCase(studentName) ) // student[i].getID()== studentID ||
                     {
-                            JOptionPane.showMessageDialog(null,"returning student information");
+                           // JOptionPane.showMessageDialog(null,"returning student information");
                             return student[i].getStudentInfo();
                     }
                     else
@@ -250,7 +250,7 @@ public class Library implements Serializable
             {
                     if (student[i].getID() == studentID) //book[i].getISBN() == ISBN ||book[i].getNameofbook().equalsIgnoreCase(nameOfBook) == true ||
                     {
-                            JOptionPane.showMessageDialog(null,"returning student info");
+                            //JOptionPane.showMessageDialog(null,"returning student info");
                            
                             return student[i].getStudentInfo();
                     }
@@ -275,7 +275,7 @@ public class Library implements Serializable
             {
                     if (book[i].getISBN() == bookISBN) //book[i].getISBN() == ISBN ||book[i].getNameofbook().equalsIgnoreCase(nameOfBook) == true ||
                     {
-                            JOptionPane.showMessageDialog(null,"returning student info");
+                            //JOptionPane.showMessageDialog(null,"returning student info");
                            
                             return book[i].printBookInfo();
                     }
@@ -298,41 +298,50 @@ public class Library implements Serializable
         
         
         //CheckoutBooks Method
-    public static void checkOutBook(int studentId, int ISBN) //9
+    public static void checkOutBook(int studentId, int isbn) //9
     {
 	for(int i = 0; i < student.length; i++)
 	{
+            if(searchID(studentId) != null)
+            {
 		if(student[i].getID() == studentId)
 		{
 			if(student[i].getCheckedOutBook() >= 0 && student[i].getCheckedOutBook() < 3)
-			{
-				if(book[i].getISBN() == ISBN)
+			{   
+                            for(int j = 0; j < book.length; j++)
+                            {
+                                if(SearchISBN(isbn) != null)
+                                {
+				if(book[j].getISBN() == isbn)
 				{
-					if(book[i].getQuantity() == 0)
+					if(book[j].getQuantity() == 0)
 					{
 						JOptionPane.showMessageDialog(null,"Seems like there are no more books available");
-						break; 
+						//break; 
 					}
 					else
 					{
 						student[i].setCheckedOutBooks(student[i].getCheckedOutBook() + 1);
-						book[i].setQuantity(book[i].getQuantity() -1);
+						book[j].setQuantity(book[j].getQuantity() -1);
                                                 JOptionPane.showMessageDialog(null,"Checked Out");
-						break;
+						//break;
 					}
 				}
-				else
-				{
-					JOptionPane.showMessageDialog(null,"Seems like the book ISBN does not match");
-					break;
-				}					
+                                }
+                                else
+                                {
+                                    JOptionPane.showMessageDialog(null,"Seems like the book ISBN does not match");
+                                    break;
+                                }
+                            }
 			}
 			else 
 			{
 				JOptionPane.showMessageDialog(null,"Seems like the student already has max amount of books");
-				break;
+				//break;
 			}
 		}
+                }
 		else 
 		{
 			JOptionPane.showMessageDialog(null,"Seems like the student is not registered!!");
@@ -341,33 +350,43 @@ public class Library implements Serializable
 	}
   }
           
-    public static void checkInBook(int studentId, int ISBN) //10
+    public static void checkInBook(int studentId, int isbn) //10
 	{
 		for(int i = 0; i < student.length; i++)
 		{
+                    if(searchID(studentId) != null)
+                    {
 			if(student[i].getID() == studentId)
 			{
 				if(student[i].getCheckedOutBook() != 0)
 				{
-					if(book[i].getISBN() == ISBN)
+                                    for(int j = 0; j < book.length; j++)
+                                    {   
+                                    if(SearchISBN(isbn) != null)
+                                    {  
+                            
+					if(book[j].getISBN() == isbn)
 					{
                                             student[i].setCheckedOutBooks(student[i].getCheckedOutBook() - 1);
-                                            book[i].setQuantity(book[i].getQuantity() + 1);
+                                            book[j].setQuantity(book[j].getQuantity() + 1);
                                             JOptionPane.showMessageDialog(null,"Checked in");
-                                            break;
+                                            //break;
 					}
-					else
-					{
+                                    }    
+                                    else
+                                    {
 						JOptionPane.showMessageDialog(null,"Seems like the book ISBN does not match");
 						break;
-					}					
+                                    }
+                                    }
 				}
 				else 
 				{
 					JOptionPane.showMessageDialog(null,"Seems like the student doesnt have any books to check in");
-					break;
+					//break;
 				}
 			}
+                        }
 			else 
 			{
 				JOptionPane.showMessageDialog(null,"Seems like the student is not registered");
