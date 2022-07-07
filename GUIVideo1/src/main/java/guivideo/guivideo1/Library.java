@@ -241,7 +241,55 @@ public class Library implements Serializable
           return null;
   }
         
+        public static int getBookIndex(int isbn)
+        {
+            try{
+            for(int i = 0; i < book.length; i++) 
+            {
+                    if (book[i].getISBN() == isbn) //book[i].getISBN() == ISBN ||book[i].getNameofbook().equalsIgnoreCase(nameOfBook) == true ||
+                    {
+                            //JOptionPane.showMessageDialog(null,"returning student info");
+                           
+                            return i;
+                    }
+                    else
+                    {
+                        //JOptionPane.showMessageDialog(null,"ID NULL");
+                       // break;
+                    }
+            }
+        }        
+        catch(NullPointerException e)
+        {
+            JOptionPane.showMessageDialog(null,"Null Pointer execption");
+        }
+          return -1;
+        }
         
+        public static int getStudentIndex(int studentID)
+        {
+            try{
+            for(int i = 0; i < student.length; i++) 
+            {
+                    if (student[i].getID() == studentID) //book[i].getISBN() == ISBN ||book[i].getNameofbook().equalsIgnoreCase(nameOfBook) == true ||
+                    {
+                            //JOptionPane.showMessageDialog(null,"returning student info");
+                           
+                            return i;
+                    }
+                    else
+                    {
+                        //JOptionPane.showMessageDialog(null,"ID NULL");
+                       // break;
+                    }
+            }
+        }        
+        catch(NullPointerException e)
+        {
+            JOptionPane.showMessageDialog(null,"Null Pointer execption");
+        }
+          return -1;
+        }
         
         public static String searchID(int studentID)
         {
@@ -295,10 +343,44 @@ public class Library implements Serializable
         
         
         
-        
+    public static void checkOutBook(int studentID, int isbn) //9
+    {
+        int studIndex = getStudentIndex(studentID);
+        int bookIndex = getBookIndex(isbn);
+        if(studIndex != -1 && bookIndex != -1){
+            if(student[studIndex].addBook(isbn)){
+                book[bookIndex].setQuantity(book[bookIndex].getQuantity() - 1);
+                JOptionPane.showMessageDialog(null,"Book checked out!");
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Student already has max. (3 books) checked out.");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Cannot find student or book.");
+        }
+    }    
+    
+        public static void checkInBook(int studentID, int isbn) //9
+    {
+        int studIndex = getStudentIndex(studentID);
+        int bookIndex = getBookIndex(isbn);
+        if(studIndex != -1 && bookIndex != -1){
+            if(student[studIndex].removeBook(isbn)){
+                book[bookIndex].setQuantity(book[bookIndex].getQuantity() + 1);
+                JOptionPane.showMessageDialog(null,"Book checked in!");
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Could not check in book.");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Cannot find student or book.");
+        }
+    }    
         
         //CheckoutBooks Method
-    public static void checkOutBook(int studentId, int isbn) //9
+    /*public static void checkOutBook(int studentId, int isbn) //9
     {
 	for(int i = 0; i < student.length; i++)
 	{
@@ -348,9 +430,9 @@ public class Library implements Serializable
 			break;
 		}
 	}
-  }
+  }*/
           
-    public static void checkInBook(int studentId, int isbn) //10
+    /*public static void checkInBook(int studentId, int isbn) //10
 	{
 		for(int i = 0; i < student.length; i++)
 		{
@@ -393,7 +475,7 @@ public class Library implements Serializable
 				break;
 			}
 		}	
-	}
+	}*/
           
           
           
