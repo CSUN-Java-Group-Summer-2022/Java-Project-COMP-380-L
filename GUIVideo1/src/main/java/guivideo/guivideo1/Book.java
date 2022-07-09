@@ -74,9 +74,10 @@ public Book(String nameofbook, String authorofbook, int quantity) {
 		int id = (int) (Math.random() * 1000000) + 1;
 		return id;
 	}
+        
 	public String printBookInfo()
 	{
-	String a = nameofbook + " " + authorofbook + " " + iSBN + " " + quantity + "\n" ;
+	String a = "Title: " + nameofbook +" Author: " + authorofbook + " ISBN: " + iSBN + " In Stock: " + quantity;
 	return a;
 	}
 }
