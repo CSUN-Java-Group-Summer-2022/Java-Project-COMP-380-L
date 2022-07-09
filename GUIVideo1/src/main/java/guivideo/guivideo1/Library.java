@@ -68,7 +68,7 @@ public class Library implements Serializable
             outputFile.writeObject(book);
             outputFile.close();
             
-            JOptionPane.showMessageDialog(null, "Succesfully Saved!");
+            JOptionPane.showMessageDialog(null, "Books Succesfully Saved!");
         }
         catch(Exception e)
         {
@@ -137,7 +137,7 @@ public class Library implements Serializable
             outputFile.writeObject(student);
             outputFile.close();
             
-            JOptionPane.showMessageDialog(null, "Succesfully Saved!");
+            JOptionPane.showMessageDialog(null, "Students Succesfully Saved!");
         }
         catch(Exception e)
         {
