@@ -111,6 +111,7 @@ public class AddStudent extends javax.swing.JFrame {
         String name = studentName.getText().trim();
         Library.registerStudent(name);
         Library.printRegisteredStudents();
+        Library.saveStudentsToFile();
     }                           
     }//GEN-LAST:event_studentNameActionPerformed
 

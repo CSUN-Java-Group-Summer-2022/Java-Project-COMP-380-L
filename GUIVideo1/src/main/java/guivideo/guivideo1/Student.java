@@ -5,6 +5,7 @@
 package guivideo.guivideo1;
 
 import java.io.*;
+import java.util.Arrays;
 
 /**
  *
@@ -12,15 +13,16 @@ import java.io.*;
  */
 public class Student implements Serializable 
 {
-    private int checkedOutBook = 0;
+    //private int checkedOutBook = 0;
     private int id;
     private String name;
+    private int[] coBooks = {-1, -1, -1}; 
     //Might need to add in a job class for this class
     
     public Student(String name) {
         this.id = generateId();
         this.name = name;
-        this.checkedOutBook = checkedOutBook;
+        this.coBooks = coBooks;
     }
     
     //Getters
@@ -32,6 +34,31 @@ public class Student implements Serializable
         return name;
     }
 
+    public int getNumCheckedOut()
+    {
+        return coBooks.length;
+    }
+    
+    public boolean addBook(int isbn) {
+        for(int i = 0; i < 3; i++){
+            if(coBooks[i] == -1){
+                coBooks[i] = isbn;
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean removeBook(int isbn) {
+        for(int i = 0; i < 3; i++){
+            if(coBooks[i] == isbn){
+                coBooks[i] = -1;
+                return true;
+            }
+        }
+        return false;
+    }
+    
     //Setters
     public void setID(int id) {
         this.id = id;
@@ -41,6 +68,16 @@ public class Student implements Serializable
     {
         this.name = name;
     }
+    
+    private int bookCount(){
+        int tempCount = 0; 
+        for(int i = 0; i < 3; i++){
+            if(coBooks[i] != -1){
+                tempCount++;
+            }
+        }
+        return tempCount;
+    }
        //Need method to create a random student ID number
     
     	private int generateId() {
@@ -48,7 +85,7 @@ public class Student implements Serializable
 	  return id;
 	}
     
-    	public void setCheckedOutBooks( int newChecked)
+    	/*public void setCheckedOutBooks( int newChecked)
 	{
 		if(newChecked <= 3 && 0 <= newChecked)
 		{
@@ -58,13 +95,13 @@ public class Student implements Serializable
 		{
 			System.out.print("Already has more than 3 books checked out");
 		}
-	}
+	}*/
     
     
     
     	public String getStudentInfo()
 	{
-		String a = "Student Name: " + name + " ID: " + id + " Checked out books: " + checkedOutBook; 
+		String a = "Student Name: " + name + "\nID: " + id + "\nChecked out books: " + bookCount() + "\n" + Arrays.toString(coBooks); 
 		return a;
 	}
     

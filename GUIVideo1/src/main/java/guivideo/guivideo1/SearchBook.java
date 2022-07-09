@@ -158,7 +158,7 @@ public class SearchBook extends javax.swing.JFrame {
             //If no text feild then print this msg to the user
             JOptionPane.showMessageDialog(null,"Please enter all feilds!");
         }
-        else
+        else if(isbn.getText().isEmpty() && title1.getText().isEmpty() )
         {
              
             
@@ -177,6 +177,137 @@ public class SearchBook extends javax.swing.JFrame {
                   JOptionPane.showMessageDialog(null,hello);   
              }
              
+        }
+        else if(isbn.getText().isEmpty() && author1.getText().isEmpty() )
+        {
+             String title2 = title1.getText().trim();
+             String author2 = author1.getText().trim();
+             //int isbn2 = Integer.parseInt(isbn.getText().trim());
+             
+             String hello = Library.searchBookByISBN(title2,author2);
+             
+             if(hello == null) //title2 isbn2
+             {
+                JOptionPane.showMessageDialog(null,"return null");
+             }
+             else
+             {
+                  JOptionPane.showMessageDialog(null,hello);   
+             }
+        }
+        else if(title1.getText().isEmpty() && author1.getText().isEmpty())
+        {
+        //do the Search ISBN here
+            int isbn2 = Integer.parseInt(isbn.getText().trim());
+            String isbnSearch = Library.SearchISBN(isbn2);
+            if(isbnSearch != null)
+            {
+                JOptionPane.showMessageDialog(null,isbnSearch);   
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null,"Nothing was found ");   
+            }
+         
+        }
+        else if(author1.getText().isEmpty())
+        {
+            String title2 = title1.getText().trim();
+            String author2 = author1.getText().trim();
+            String hello = Library.searchBookByISBN(title2,author2);
+            
+            int isbn2 = Integer.parseInt(isbn.getText().trim());
+            String isbnSearch = Library.SearchISBN(isbn2);
+            
+            if(hello == null && isbnSearch == null)
+            {
+                JOptionPane.showMessageDialog(null,"Nothing was found ");  
+            }
+        
+            else if(hello != null && isbnSearch == null)
+            {
+                JOptionPane.showMessageDialog(null,hello);  
+            }
+            else if(isbnSearch != null && hello == null)
+            {
+                JOptionPane.showMessageDialog(null,isbnSearch);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null,isbnSearch);
+            }
+        }
+        else if(title1.getText().isEmpty())
+        {
+            String title2 = title1.getText().trim();
+            String author2 = author1.getText().trim();
+            String hello = Library.searchBookByISBN(title2,author2);
+            
+            int isbn2 = Integer.parseInt(isbn.getText().trim());
+            String isbnSearch = Library.SearchISBN(isbn2);
+            
+            if(hello == null && isbnSearch == null)
+            {
+                JOptionPane.showMessageDialog(null,"Nothing was found ");  
+            }
+        
+            else if(hello != null && isbnSearch == null)
+            {
+                JOptionPane.showMessageDialog(null,hello);  
+            }
+            else if(isbnSearch != null && hello == null)
+            {
+                JOptionPane.showMessageDialog(null,isbnSearch);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null,isbnSearch);
+            }
+        }
+        else if(isbn.getText().isEmpty())
+        {
+                     
+             String title2 = title1.getText().trim();
+             String author2 = author1.getText().trim();
+             //int isbn2 = Integer.parseInt(isbn.getText().trim());
+             
+             String hello = Library.searchBookByISBN(title2,author2);
+             
+             if(hello == null) //title2 isbn2
+             {
+                JOptionPane.showMessageDialog(null,"return null");
+             }
+             else
+             {
+                  JOptionPane.showMessageDialog(null,hello);   
+             }       
+        }
+        else
+        {
+            String title2 = title1.getText().trim();
+            String author2 = author1.getText().trim();
+            String hello = Library.searchBookByISBN(title2,author2);
+            
+            int isbn2 = Integer.parseInt(isbn.getText().trim());
+            String isbnSearch = Library.SearchISBN(isbn2);
+            
+            if(hello == null && isbnSearch == null && isbnSearch == null)
+            {
+                JOptionPane.showMessageDialog(null,"Nothing was found ");  
+            }
+        
+            else if(hello != null)
+            {
+                JOptionPane.showMessageDialog(null,hello);  
+            }
+            else if(isbnSearch != null)
+            {
+                JOptionPane.showMessageDialog(null,isbnSearch);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null,isbnSearch);
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

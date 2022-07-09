@@ -163,29 +163,64 @@ public class SearchStudent extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
                         // TODO add your handling code here  
-          if (nameEntered.getText().isEmpty() && idEntered.getText().isEmpty() ){
+        if (nameEntered.getText().isEmpty() & idEntered.getText().isEmpty() ){
             
              //If no text feild then print this msg to the user
             JOptionPane.showMessageDialog(null,"Please enter at least one feild!");
         }
-           
-        else {
+        else if(nameEntered.getText().isEmpty())
+        {
+              int idEntered2 = Integer.parseInt(idEntered.getText().trim());
+              String returnInfo = Library.searchID(idEntered2);
+              if (returnInfo != null)
+              {
+                  JOptionPane.showMessageDialog(null,returnInfo);
+              }
+              else
+              {
+                  JOptionPane.showMessageDialog(null,"Looks like nothing was found");
+              }
+        }
+        else if(idEntered.getText().isEmpty())
+        {
             String nameEntered2 = nameEntered.getText().trim();
-            //int idEntered2 = Integer.parseInt(idEntered.getText().trim());
-            
-            
             String hello2 = Library.searchStudentID(nameEntered2);
-             
-             if(hello2 == null)
-             {
-                JOptionPane.showMessageDialog(null,"return null");
-             }
-             else
-             {
-                  JOptionPane.showMessageDialog(null,hello2);   
-             }
-        } 
-       
+            if(hello2 != null)
+            {
+                JOptionPane.showMessageDialog(null,hello2);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null,"Looks like nothing was found");
+            }
+            
+        }
+        else
+        {
+            int idEntered2 = Integer.parseInt(idEntered.getText().trim());
+            String returnInfo = Library.searchID(idEntered2);
+            
+            String nameEntered2 = nameEntered.getText().trim();
+            String hello2 = Library.searchStudentID(nameEntered2);
+            
+            if(hello2 == null && returnInfo == null)
+            {
+                JOptionPane.showMessageDialog(null,"Looks like nothirng was found");
+            }
+            else if (hello2 != null && returnInfo == null)
+            {
+                JOptionPane.showMessageDialog(null,hello2);
+            }
+            else if (hello2 == null && returnInfo != null)
+            {
+                JOptionPane.showMessageDialog(null,returnInfo);
+            }
+            else 
+            {
+                JOptionPane.showMessageDialog(null,returnInfo);
+            }
+
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void idEnteredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idEnteredActionPerformed
