@@ -7,6 +7,7 @@ package guivideo.guivideo1;
 import javax.swing.*;
 import java.util.*;
 import java.io.*;
+import java.text.*;
 
 /**
  *
@@ -341,7 +342,14 @@ public class Library implements Serializable
           return null;
         }
         
-        
+    public static String getReturnDate() {
+    DateFormat DF = new SimpleDateFormat("MMMM dd, yyyy", Locale.US);
+    Calendar calendar = Calendar.getInstance();
+    //calendar.setTime(date);
+    calendar.add(Calendar.DATE, 14);
+    //Date date = calendar.getTime();//add 2 weeks to current date
+    return DF.format(calendar.getTime());
+    }
         
     public static void checkOutBook(int studentID, int isbn) //9
     {
@@ -350,7 +358,7 @@ public class Library implements Serializable
         if(studIndex != -1 && bookIndex != -1){
             if(student[studIndex].addBook(isbn)){
                 book[bookIndex].setQuantity(book[bookIndex].getQuantity() - 1);
-                JOptionPane.showMessageDialog(null,"Book checked out!");
+                JOptionPane.showMessageDialog(null,"Book checked out!\nReturn Date:\n" + getReturnDate());
             }
             else{
                 JOptionPane.showMessageDialog(null,"Student already has max. (3 books) checked out.");
